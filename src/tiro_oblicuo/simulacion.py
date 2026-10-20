@@ -25,7 +25,19 @@ def integrar_euler(
     condición inicial, por lo que tienen ``pasos + 1`` elementos.
     """
 
-    raise NotImplementedError("completar el método de Euler")
+    t = []
+    estados = []
+
+    for i in range(pasos + 1):
+        t.append(i * dt)
+        if i == 0:
+            estados.append(np.asarray(estado_inicial, dtype=float))
+        else:
+            x0, y0, vx0, vy0 = estados[i - 1]
+
+            estados.append([x0 + vx0 * dt, y0 + vy0 * dt, vx0, vy0 - gravedad * dt])
+
+    return [np.asarray(t), np.asarray(estados)]
 
 
 def solucion_exacta(

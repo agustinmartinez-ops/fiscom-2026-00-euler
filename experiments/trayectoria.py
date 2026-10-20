@@ -22,7 +22,7 @@ def main() -> None:
     rapidez = 20.0
     angulo = np.deg2rad(45.0)
     gravedad = 9.81
-    dt = 0.1
+    dt = 0.01
     inicial = np.array([0.0, 0.0, rapidez * np.cos(angulo), rapidez * np.sin(angulo)])
     tiempo_de_vuelo = 2 * inicial[3] / gravedad
     pasos = round(tiempo_de_vuelo / dt)
